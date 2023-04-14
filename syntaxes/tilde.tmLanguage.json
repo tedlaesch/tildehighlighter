@@ -1,0 +1,210 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.tilde",
+	"name": "Tilde",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#declaration"
+		},
+		{
+			"include": "#read"
+		},
+		{
+			"include": "#write"
+		},
+		{
+			"include": "#var"
+		},
+		{
+			"include": "#num"
+		},
+		{
+			"include": "#assignment"
+		},
+		{
+			"include": "#if"
+		},
+		{
+			"include": "#ifdelimit"
+		},
+		{
+			"include": "#add"
+		},
+		{
+			"include": "#sub"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{ "include": "#comments.block"}
+			],
+			"repository": {
+				"comments.block": {
+					"name": "comment.block.cfa",
+					"begin": "&",
+					"end": "&",
+					"beginCaptures": {
+						"0": { "name": "punctuation.definition.comment"}
+					},
+					"endCaptures": {
+						"0": { "name": "punctuation.definition.comment"}
+					}
+				}
+			}
+		},
+		"declaration": {
+			"patterns": [
+				{ "include": "#declaration.type"}
+			],
+			"repository": {
+				"declaration.type": {
+					"patterns": [
+						{
+							"match": "\\^",
+							"name": "keyword.operator"
+						}
+					]
+				}
+			}
+		},
+		"read": {
+			"patterns": [
+				{ "include": "#read.type"}
+			],
+			"repository": {
+				"read.type": {
+					"patterns": [
+						{
+							"match": "\\[",
+							"name": "entity.name.function"
+						}
+					]
+				}
+			}
+		},
+		"write": {
+			"patterns": [
+				{ "include": "#write.type"}
+			],
+			"repository": {
+				"write.type": {
+					"patterns": [
+						{
+							"match": "\\]",
+							"name": "string"
+						}
+					]
+				}
+			}
+		},
+		"var": {
+			"patterns": [
+				{ "include": "#var.type"}
+			],
+			"repository": {
+				"var.type": {
+					"patterns": [
+						{
+							"match": "[A-z]_[1-9][0-9]*",
+							"name": "variable"
+						}
+					]
+				}
+			}
+		},
+		"num": {
+			"patterns": [
+				{ "include": "#num.type"}
+			],
+			"repository": {
+				"num.type": {
+					"patterns": [
+						{
+							"match": "(\\+|-)[0-9]+(\\.?)?(?(1)[0-9]+)",
+							"name": "constant.numeric"
+						}
+					]
+				}
+			}
+		},
+		"assignment": {
+			"patterns": [
+				{ "include": "#assignment.type"}
+			],
+			"repository": {
+				"assignment.type": {
+					"patterns": [
+						{
+							"match": "\\|",
+							"name": "keyword.operator"
+						}
+					]
+				}
+			}
+		},
+		"if": {
+			"patterns": [
+				{ "include": "#if.type"}
+			],
+			"repository": {
+				"if.type": {
+					"patterns": [
+						{
+							"match": "\\*",
+							"name": "keyword.control"
+						}
+					]
+				}
+			}
+		},
+		"ifdelimit": {
+			"patterns": [
+				{ "include": "#ifdelimit.type"}
+			],
+			"repository": {
+				"ifdelimit.type": {
+					"patterns": [
+						{
+							"match": "((?<=[0-9] |~ ~ )~(?! ~| *$))",
+							"name": "keyword.control"
+						}
+					]
+				}
+			}
+		},
+		"add": {
+			"patterns": [
+				{ "include": "#add.type"}
+			],
+			"repository": {
+				"add.type": {
+					"patterns": [
+						{
+							"match": "{",
+							"name": "keyword.operator"
+						}
+					]
+				}
+			}
+		},
+		"sub": {
+			"patterns": [
+				{ "include": "#sub.type"}
+			],
+			"repository": {
+				"sub.type": {
+					"patterns": [
+						{
+							"match": "}",
+							"name": "keyword.operator"
+						}
+					]
+				}
+			}
+		}
+	}
+}

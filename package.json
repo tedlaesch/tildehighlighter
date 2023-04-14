@@ -1,0 +1,26 @@
+{
+  "name": "tildehighlighter",
+  "displayName": "TildeHighlighter",
+  "description": "A syntax highlighter that makes it easier to write Tilde",
+  "publisher": "Ted Laesch",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tilde",
+      "aliases": ["Tilde", "tilde"],
+      "extensions": [".til"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tilde",
+      "scopeName": "source.tilde",
+      "path": "./syntaxes/tilde.tmLanguage.json"
+    }]
+  }
+}
