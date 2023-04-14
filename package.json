@@ -21,6 +21,10 @@
       "language": "tilde",
       "scopeName": "source.tilde",
       "path": "./syntaxes/tilde.tmLanguage.json"
-    }]
+    }],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/tedlaesch/tildehighlighter"
+    }
   }
 }
